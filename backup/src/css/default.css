@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+/**
+ *  Hello World プロジェクト共通のデフォルトスタイルシート
+ *  HTMLタグ内のスタイルシートの最初に指定する
+ *
+ */
+html {
+	padding: 0,0,0,0;
+	margin : 0,0,0,0;
+}
+
+body {
+	font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+table, tr, th, td, thead, tbody {
+	padding: 0px;
+	margin: 0px;
+	border-spacing: 0px;
+}
+
+thead, th {
+	border : solid 1px #4380d3;
+	background-color : #6996d3;
+	color : #FFFFFF;
+}
+
+tbody, td {
+	border : solid 1px #4380d3;
+	background-color : #ffffff;
+}

@@ -1,0 +1,13 @@
+<?php
+require 'C:/UserTemp/workspace_php/HelloWorld/sample/basic/all.php';
+
+class NumberSampleTest extends PHPUnit_Framework_TestCase
+{
+	function setup() {
+		$this->numberSample = new NumberSample();
+	}
+
+	function testAdd() {
+		$this->assertEquals('20.5', $this->numberSample->add(10,10.5));
+	}
+}
