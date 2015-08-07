@@ -8,6 +8,7 @@ echo '<tr><td>PHPExcel</td><td>Excelファイル出力用のライブラリです</td></tr></ta
 
 
 echo '<hr>';
+echo '<hr>';
 
 phpinfo();
 ?>
