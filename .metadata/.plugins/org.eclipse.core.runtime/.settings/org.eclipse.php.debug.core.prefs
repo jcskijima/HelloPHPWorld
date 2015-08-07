@@ -1,0 +1,13 @@
+DefaultProjectBasePath=/HelloWorldTest
+eclipse.preferences.version=1
+org.eclipse.php.debug.core.pathMapper=<pathMappers><item1><mapper></mapper><server>Default PHP Web Server</server></item1></pathMappers>
+org.eclipse.php.debug.coredefaultPHP=PHP5.5 (CLI)
+org.eclipse.php.debug.coreenable_cli_debug=false
+org.eclipse.php.debug.coreinstalledPHPDebuggers=org.eclipse.php.debug.core.xdebugDebugger;org.eclipse.php.debug.core.xdebugDebugger
+org.eclipse.php.debug.coreinstalledPHPDefaults=org.eclipse.php.debug.core.xdebugDebugger\=PHP5.5 (CGI)
+org.eclipse.php.debug.coreinstalledPHPInis=C\:\\UserInstalled\\php\\php.ini;C\:\\UserInstalled\\php\\php.ini
+org.eclipse.php.debug.coreinstalledPHPLoadIniDefaults=false;true
+org.eclipse.php.debug.coreinstalledPHPLocations=C\:\\UserInstalled\\php\\php.exe;C\:\\UserInstalled\\php\\php.exe
+org.eclipse.php.debug.coreinstalledPHPNames=PHP5.5 (CGI);PHP5.5 (CLI)
+org.eclipse.php.debug.corephp_debugger_id=org.eclipse.php.debug.core.xdebugDebugger
+org.eclipse.php.debug.corephp_versions=php5.5;null

@@ -1,0 +1,108 @@
+<?php
+
+/*
+ *  コンフィグレーションクラス
+ */
+class Config
+{
+    // アプリケーション設定変数
+    private static $APP_CONFIG;
+
+    /**
+     * コンストラクタ（呼出不可）
+     */
+    private function __construct() {}
+
+    /**
+     * 設定ファイルをロードする
+     * @param なし
+     * @throws Exception
+     * @return なし
+     */
+    private static function LOAD() {
+    	try {
+    		if (!isset(self::$APP_CONFIG)) {
+    		    self::$APP_CONFIG = parse_ini_file('app.ini');
+    	    }
+    	} catch (Exception $e) {
+    		var_dump($e->getMessage());
+    		throw $e;
+    	}
+    }
+
+    /**
+     * キー指定で設定ファイルの値を取得する
+     * @param  $key
+     * @throws Exception
+     * @return unknown
+     */
+    private static function GET_BY_KEY(string $key) {
+    	self::LOAD();
+
+    	if (!isset($APP_CONFIG[$key])) {
+    		var_dump('指定したキーは設定ファイルに定義されていません。キー = ['.$key.']');
+    		throw new Exception('指定したキーは設定ファイルに定義されていません。キー = ['.$key.']');
+    	}
+
+    	return self::$APP_CONFIG[$key];
+    }
+
+    /**
+     * キー、セクション指定で設定ファイルの値を取得する
+     * @param  キー：$key、セクション：$section
+     * @throws Exception
+     * @return unknown
+     */
+    private static function GET_BY_SECTION(string $key, string $section) {
+    	self::LOAD();
+
+    	if (!isset(self::$APP_CONFIG[$section])) {
+    		var_dump('指定したセクションは設定ファイルに定義されていません。セクション = ['.$section.']');
+    		throw new Exception('指定したセクションは設定ファイルに定義されていません。セクション = ['.$section.']');
+    	}
+
+    	if (!isset(self::$APP_CONFIG[$section][$key])) {
+    		var_dump('指定したキーは設定ファイルに定義されていません。キー = ['.$key.']');
+    		throw new Exception('指定したキーは設定ファイルに定義されていません。キー = ['.$key.']');
+    	}
+
+    	return self::$APP_CONFIG[$section][$key];
+    }
+
+    /**
+     * 設定ファイルの値を取得する
+     * @param キー： $key、セクション： $section
+     * @throws Exception
+     * @return 設定ファイルの値
+     */
+    public static function GET() {
+        $ret;
+    	$args  = func_get_args();
+
+    	switch(func_num_args()) {
+    		case 1:
+    			$ret = self::GET_BY_KEY($args[0]);
+    			break;
+    		case 2:
+    			$ret = self::GET_BY_SECTION($args[0], $args[1]);
+    			break;
+    		default:
+    			throw new Exception('パラメータはキーのみ、または、キーとセクションのいずれかを指定してください');
+    			break;
+
+    	}
+
+    	return $ret;
+    }
+
+    /**
+     * 設定ファイルのキーバリュー配列を取得する
+     * @return 設定ファイルのキーバリュー配列
+     */
+    public static function GET_APP_CONFIG() {
+    	self::LOAD();
+
+    	return self::$APP_CONFIG;
+    }
+}
+?>
